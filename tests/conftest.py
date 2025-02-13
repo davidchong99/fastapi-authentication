@@ -30,7 +30,7 @@ def jwt_auth_token():
         algo=os.getenv("ALGORITHM"),
         expires_delta=access_token_expires,
     )
-    headers = {"Content-Type": "application/json", "Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer " + token}
     return headers
 
 
@@ -43,7 +43,7 @@ def jwt_auth_token_no_permissions():
         algo=os.getenv("ALGORITHM"),
         expires_delta=access_token_expires,
     )
-    headers = {"Content-Type": "application/json", "Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer " + token}
     return headers
 
 
@@ -56,21 +56,20 @@ def jwt_auth_token_invalid_format():
         algo=os.getenv("ALGORITHM"),
         expires_delta=access_token_expires,
     )
-    headers = {"Content-Type": "application/json", "Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer " + token}
     return headers
 
 
 @pytest.fixture
 def api_key():
     api_key = os.getenv("API_KEY")
-    headers = {"Content-Type": "application/json", "x-api-key": api_key}
+    headers = {"x-api-key": api_key}
     return headers
 
 
 @pytest.fixture
 def invalid_api_key():
     headers = {
-        "Content-Type": "application/json",
         "x-api-key": "wrongkey",
     }
     return headers
