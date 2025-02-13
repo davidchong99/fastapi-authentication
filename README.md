@@ -35,21 +35,18 @@ The response returned is as below:
 {"org":"ABC Corp"}
 ```
 ## Architecture
-All source codes are in /app directory.
-
+All source codes are in /app directory.\
 main.py serves as the main entry point of this API.
 
 There are 2 routers: 
-* metric_router
-* organization_router
+* metric_router with API key authentication
+* organization_router with JWT token authentication
 
-The business logic for the endpoints are defined in the service.py
-
-The data transfer objects are defined in dto.py.
+The business logic for the endpoints are defined in their respective service.py\
+The data transfer objects are defined in their respective dto.py.
 
 ## Tests
-End-to-end tests are found in tests/e2e_tests. 
-
+End-to-end tests are found in tests/e2e_tests.\
 The run_tests.sh script will set up the env before running all tests with pytest.
 
 
