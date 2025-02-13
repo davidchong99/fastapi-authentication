@@ -1,0 +1,11 @@
+services:
+
+  app:
+    container_name: app
+    build: .
+    volumes:
+      - .:/code
+    env_file:
+      - compose.env
+    ports:
+      - 8080:8080
